@@ -125,6 +125,7 @@ a:hover {
   /* justify-content: center; */
   padding-left: 10rem;
   align-items: center;
+  width: 100%;
   height: 100vh;
 }
 #landingPage img {
@@ -154,11 +155,12 @@ a:hover {
 
   #landingPage {
     padding-left: 1rem;
+    width: 100%;
   }
   p {
     padding-top: 0.5rem;
   }
   #landingPage img {
-    width: 21rem;
+    width: 16rem;
   }
 }
