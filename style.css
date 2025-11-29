@@ -27,3 +27,135 @@
   font-weight: 400;
   font-style: italic;
 }
+
+body {
+  background-color: #f9f8f6;
+  font-family: "AGaramondPro";
+  max-width: 2400px;
+  margin: 0 auto;
+  width: 100%;
+  font-size: 18px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(0px);
+  transition: 0.2s ease;
+}
+
+#logo {
+  position: fixed;
+  top: 1rem;
+  padding-left: 1em;
+  z-index: 10;
+}
+#logo img {
+  width: 16rem;
+}
+
+nav {
+  position: sticky;
+  top: 0rem;
+  padding-top: 1rem;
+  left: 0;
+}
+nav a,
+.footer a {
+  margin-right: 1em;
+  text-decoration: none;
+  color: black;
+  transition: 0.5s ease;
+}
+a:hover {
+  margin-right: 1em;
+  text-decoration: none;
+  color: gray;
+}
+
+.box-ident {
+  padding-left: 27rem;
+}
+.projects,
+.footer,
+.about {
+  display: flex;
+  flex-direction: column;
+  padding-top: 5rem;
+  width: 85%;
+}
+
+.year,
+.caption {
+  margin-top: 3em;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: MonumentGrotesk, sans-serif;
+}
+
+.year:first-child {
+  margin-top: 0em;
+}
+.item {
+  width: fit-content;
+  cursor: pointer;
+  transition: 0.3s ease;
+  padding-top: 0.3em;
+}
+.item:hover {
+  padding-left: 1.5rem;
+  color: gray;
+}
+
+.preview {
+  position: fixed;
+  top: 6rem;
+  left: 1rem;
+  width: 18rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.about img {
+  width: 25rem;
+}
+
+#landingPage {
+  display: flex;
+  /* justify-content: center; */
+  padding-left: 10rem;
+  align-items: center;
+  height: 100vh;
+}
+#landingPage img {
+  width: 40rem;
+}
+
+@media (max-width: 900px) {
+  .preview {
+    display: none;
+  }
+
+  nav {
+    text-align: right;
+  }
+  nav a {
+    margin-right: 0;
+    margin-left: 1rem;
+  }
+
+  .box-ident {
+    padding-left: 1rem;
+    width: 97%;
+  }
+  .about img {
+    width: 100%;
+  }
+
+  #landingPage {
+    padding-left: 1rem;
+  }
+  p {
+    padding-top: 0.5rem;
+  }
+}
