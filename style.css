@@ -158,4 +158,7 @@ a:hover {
   p {
     padding-top: 0.5rem;
   }
+  #landingPage img {
+    width: 21rem;
+  }
 }
