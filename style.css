@@ -46,11 +46,13 @@ body {
 #logo {
   position: fixed;
   top: 0.9rem;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: MonumentGrotesk, sans-serif;
   padding-left: 1em;
   z-index: 10;
-}
-#logo img {
-  width: 16rem;
+  color: black;
+  text-decoration: none;
 }
 
 nav {
@@ -84,6 +86,11 @@ a:hover {
   width: 85%;
 }
 
+.projects,
+.footer {
+  margin-bottom: 5rem;
+}
+
 .year,
 .caption {
   margin-top: 3em;
@@ -110,7 +117,7 @@ a:hover {
   position: fixed;
   top: 6rem;
   left: 1rem;
-  width: 18rem;
+  width: 22rem;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.15s ease;
