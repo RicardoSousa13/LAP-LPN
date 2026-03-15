@@ -1,4 +1,3 @@
-/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +5,6 @@
   box-sizing: border-box;
 }
 
-/* Fontes — forma correta */
 @font-face {
   font-family: "MonumentGrotesk";
   src: url("fonts/ABCMonumentGrotesk-Medium.otf") format("opentype");
@@ -28,95 +26,126 @@
   font-style: italic;
 }
 
+:root {
+  --bg: #f9f8f6;
+  --text: #111111;
+  --page-pad: 1rem;
+  --grid-gap: 1rem;
+  --header-offset: 3.5rem;
+}
+
+html {
+  background: var(--bg);
+}
+
 body {
-  background-color: #f9f8f6;
-  font-family: "AGaramondPro";
-  max-width: 2400px;
-  margin: 0 auto;
-  width: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "AGaramondPro", serif;
   font-size: 18px;
+  line-height: 1.2;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .reveal {
   opacity: 0;
-  transform: translateY(0px);
-  transition: 0.2s ease;
+}
+
+.site-grid,
+.site-header {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: var(--grid-gap);
+  width: 100%;
+  padding-left: var(--page-pad);
+  padding-right: var(--page-pad);
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  align-items: baseline;
+  padding-top: 0.9rem;
+  mix-blend-mode: difference;
+}
+
+.site-header a,
+.site-header span {
+  color: white;
 }
 
 #logo {
-  position: fixed;
-  top: 0.9rem;
+  grid-column: 1 / 3;
+  font-family: "MonumentGrotesk", sans-serif;
   font-size: 15px;
   font-weight: 700;
-  font-family: MonumentGrotesk, sans-serif;
-  padding-left: 1em;
-  z-index: 100;
-  color: black;
-  text-decoration: none;
 }
 
-nav {
-  position: sticky;
-  top: 0rem;
-  padding-top: 1rem;
-  left: 0;
-  z-index: 21;
-}
-nav a,
-.footer a {
-  margin-right: 1em;
-  text-decoration: none;
-  color: black;
-  transition: 0.5s ease;
-}
-a:hover {
-  margin-right: 1em;
-  text-decoration: none;
-  color: gray;
-}
-
-.box-ident {
-  padding-left: 27rem;
-}
-.projects,
-.footer,
-.about {
+.main-nav {
+  grid-column: 4 / 6;
   display: flex;
-  flex-direction: column;
-  padding-top: 5rem;
-  width: 85%;
-}
-
-.projects,
-.footer {
-  margin-bottom: 5rem;
-}
-
-.year,
-.caption {
-  margin-top: 3em;
+  gap: 1rem;
+  font-family: "MonumentGrotesk", sans-serif;
   font-size: 15px;
+}
+nav a {
+  font-family: "AGaramondPro", serif;
+
+  font-size: 18px;
+}
+
+.project-breadcrumb {
+  grid-column: 6/10;
+  font-family: "MonumentGrotesk", sans-serif;
+  font-size: 15px;
+}
+
+.project-breadcrumb span {
+  grid-column: 2;
+}
+
+.page-content {
+  padding-top: var(--header-offset);
+}
+
+.caption,
+.year {
+  margin-top: 3rem;
+  font-family: "MonumentGrotesk", sans-serif;
+  font-size: 13px;
   font-weight: 700;
-  font-family: MonumentGrotesk, sans-serif;
+  text-transform: uppercase;
 }
 
-.year:first-child {
-  margin-top: 0em;
-}
-.item {
-  width: fit-content;
-  cursor: pointer;
-  transition: 0.3s ease;
-  padding-top: 0.3em;
-}
-.item:hover {
-  padding-left: 1.5rem;
-  color: gray;
+/* index */
+.landing {
+  min-height: 100vh;
+  align-items: center;
 }
 
+.landing img {
+  grid-column: 4 / 8;
+  width: 100%;
+  max-width: 40rem;
+}
+
+/* projects */
 .preview {
   position: fixed;
-  top: 6rem;
+  top: 4rem;
   left: 1rem;
   width: 22rem;
   opacity: 0;
@@ -124,51 +153,199 @@ a:hover {
   transition: opacity 0.15s ease;
 }
 
-.about img {
-  width: 25rem;
+.projects-list {
+  grid-column: 4 / 11;
+  padding-top: 1.5rem;
+  padding-bottom: 5rem;
 }
 
-#landingPage {
-  display: flex;
-  /* justify-content: center; */
-  padding-left: 10rem;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
+.projects-list .year:first-child {
+  margin-top: 0;
 }
-#landingPage img {
-  width: 40rem;
+
+.item {
+  display: block;
+  width: fit-content;
+  padding-top: 0.3rem;
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.item:hover {
+  padding-left: 1.5rem;
+  color: gray;
+}
+
+/* about */
+.about-page {
+  padding-top: 3.5rem;
+  padding-bottom: 5rem;
+}
+
+.about-image {
+  grid-column: 4 / 9;
+  width: 100%;
+  max-width: 25rem;
+  margin-top: 1rem;
+}
+
+.about-copy {
+  grid-column: 4 / 11;
+}
+
+/* project */
+.project-page {
+  padding-top: 1rem;
+  padding-bottom: 6rem;
+}
+
+.project-hero {
+  grid-column: 1 / -1;
+}
+
+.project-hero img {
+  width: 100%;
+  padding-top: 2rem;
+}
+
+.project-intro {
+  grid-column: 4 / 11;
+  padding-top: 3rem;
+}
+
+.project-text {
+  max-width: 42rem;
+}
+
+.project-text p {
+  margin-top: 0.7rem;
+}
+
+.project-media {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+  margin-top: 6rem;
+}
+
+.left {
+  grid-column: 1 / 5;
+}
+
+.right {
+  grid-column: 6 / 11;
+}
+.center {
+  grid-column: 4 /11;
+}
+
+.project-tech {
+  grid-column: 4 / 11;
+  margin-top: 6rem;
+}
+
+.project-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: var(--grid-gap);
+}
+
+.tech-item-full {
+  grid-column: 1 / 7;
+}
+.tech-item {
+  grid-column: span 2;
+}
+.tech-item p,
+.tech-item-full p {
+  padding-top: 0.5rem;
+}
+
+/* footer links if needed later */
+.footer {
+  grid-column: 4 / 11;
 }
 
 @media (max-width: 900px) {
+  :root {
+    --header-offset: 4rem;
+  }
+
+  .site-grid,
+  .site-header {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .site-header {
+    align-items: start;
+  }
+
+  #logo,
+  .main-nav,
+  .project-breadcrumb,
+  .landing img,
+  .projects-list,
+  .about-image,
+  .about-copy,
+  .project-hero,
+  .project-intro,
+  .project-tech,
+  .footer {
+    grid-column: 1;
+  }
+
+  .left,
+  .right,
+  .center {
+    grid-column: 1/-1;
+  }
+  .main-nav {
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: -1.1rem;
+  }
+
+  .project-breadcrumb,
   .preview {
     display: none;
   }
 
-  nav {
-    text-align: right;
-  }
-  nav a {
-    margin-right: 0;
-    margin-left: 1rem;
+  .landing {
+    min-height: 100svh;
   }
 
-  .box-ident {
-    padding-left: 1rem;
-    width: 97%;
-  }
-  .about img {
-    width: 100%;
-  }
-
-  #landingPage {
-    padding-left: 1rem;
-    width: 100%;
-  }
-  p {
-    padding-top: 0.5rem;
-  }
-  #landingPage img {
+  .landing img {
     width: 16rem;
+    max-width: none;
+  }
+
+  .about-image {
+    max-width: none;
+  }
+
+  .project-intro,
+  .project-media-left,
+  .project-media-right,
+  .project-media-center,
+  .project-tech {
+    margin-top: 3rem;
+    padding-top: 0;
+  }
+
+  .project-tech-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .caption,
+  .year {
+    margin-top: 2rem;
+  }
+
+  .project-media {
+    margin-top: 1rem;
   }
 }
