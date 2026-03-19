@@ -43,7 +43,7 @@ body {
   color: var(--text);
   font-family: "AGaramondPro", serif;
   font-size: 18px;
-  line-height: 1.2;
+  line-height: 1.4;
   width: 100%;
 }
 
@@ -139,7 +139,7 @@ nav a {
 .landing img {
   grid-column: 4 / 8;
   width: 100%;
-  max-width: 40rem;
+  max-width: 45rem;
 }
 
 /* projects */
@@ -192,6 +192,7 @@ nav a {
 
 .about-copy {
   grid-column: 4 / 11;
+  max-width: 42rem;
 }
 
 /* project */
