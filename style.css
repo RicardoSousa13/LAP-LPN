@@ -52,6 +52,10 @@ a {
   text-decoration: none;
 }
 
+italic {
+  font-style: italic;
+}
+
 img {
   display: block;
   width: 100%;
@@ -236,6 +240,10 @@ nav a {
   grid-column: 1 / 5;
 }
 
+.left2 {
+  grid-column: 1 / 7;
+}
+
 .right {
   grid-column: 6 / 11;
 }
@@ -301,7 +309,8 @@ nav a {
 
   .left,
   .right,
-  .center {
+  .cente,
+  .left2 {
     grid-column: 1/-1;
   }
   .main-nav {
